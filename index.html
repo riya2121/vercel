@@ -17,6 +17,8 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-N7F5FNW');</script>
     <!-- End Google Tag Manager -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +36,15 @@
     <!-- End Google Tag Manager (noscript) -->
 <div class="container">
     <h1 class="logo">Riya</h1>
-    <div class="cta">Click Me</div>
+    <div class="cta" id="cta">Click Me</div>
+    <div class="g-recaptcha" 
+        data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH"></div>
 </div>
+<script>
+    function onSubmit(token) {
+      document.getElementById("cta").submit();
+    }
+  </script>
 </body>
+
 </html>
