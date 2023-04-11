@@ -40,15 +40,28 @@
         <div class="cta">Click Me</div>
         <div class="g-recaptcha" data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH
         "></div>
-        <button id="demo-form" class="g-recaptcha" data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH" data-callback='onSubmit'data-action='submit'>Submit</button>
+        <button id="recaptchaResponse" class="g-recaptcha" data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH" data-callback='onSubmit'data-action='submit'>Submit</button>
 
     </div>
 
 </body>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH"></script>
+
 <script>
-    function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-    }
+    grecaptcha.ready(function() { 
+                grecaptcha
+                    .execute("6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH", {
+                        action: "submit"
+                    }) 
+                    .then(function(token){
+                        
+                        let recaptchaResponse = document.getElementById("recaptchaResponse")
+                        recaptchaResponse.value = token // Set the recaptcha response
+
+                        
+                    })
+            })
 </script>
+
 
 </html>
