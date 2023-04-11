@@ -19,6 +19,7 @@
     <!-- End Google Tag Manager -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,17 +35,20 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7F5FNW"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-<div class="container">
-    <h1 class="logo">Riya</h1>
-    <div class="cta" id="cta">Click Me</div>
-    <div class="g-recaptcha" 
-        data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH"></div>
-</div>
+    <div class="container">
+        <h1 class="logo">Riya</h1>
+        <div class="cta">Click Me</div>
+        <div class="g-recaptcha" data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH
+        "></div>
+        <button id="demo-form" class="g-recaptcha" data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH" data-callback='onSubmit'data-action='submit'>Submit</button>
+
+    </div>
+
+</body>
 <script>
     function onSubmit(token) {
-      document.getElementById("cta").submit();
+        document.getElementById("demo-form").submit();
     }
-  </script>
-</body>
+</script>
 
 </html>
