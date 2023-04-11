@@ -17,11 +17,18 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-N7F5FNW');</script>
     <!-- End Google Tag Manager -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH
+    "></script>
     <script>
-        function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-        }
+        grecaptcha.ready(function() {
+        // do request for recaptcha token
+        // response is promise with passed token
+            grecaptcha.execute('6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH', {action:'validate_captcha'})
+                      .then(function(token) {
+                // add token value to form
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,16 +48,18 @@
     <div class="container">
         <h1 class="logo">Riya</h1>
         <!-- <div class="cta">Click Me</div> -->
-        <form id="demo-form">
-            <button class="g-recaptcha cta" 
-            data-sitekey="6LdL6nklAAAAAIrTwIx_oXIfFanHDlxsevuD_xNH" 
-            data-callback='onSubmit' 
-            data-action='submit'>Submit</button>
+        <form id="form_id" method="post" action="your_action.php">
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <input type="hidden" name="action" value="validate_captcha">
+            .... your fields
         </form>
 
 
     </div>
 
 </body>
+
+
+
 
 </html>
